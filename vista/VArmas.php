@@ -18,7 +18,7 @@ class VArmas extends Vista {
                           echo "<td>".$arma["id"]."</td>";
                           echo "<td>".$arma["daño"]."</td>";
                           echo "<td>".$arma["tipo"]."</td>";
-                          echo "<td><a href='ver_arma.php?id=".$arma["id"]."'>Ver</a> | <a href='.php?id='".$arma["id"]."'>Editar</a> | <a href='.php?id='".$arma["id"]."'>Eliminar</a></td>";
+                          echo "<td><a href='ver_arma.php?id=$arma[id]'>Ver</a> | <a href='modificar_arma.php?id=$arma[id]'>Editar</a> | <a href='eliminar_arma.php?id=$arma[id]'>Eliminar</a></td>";
                     echo "</tr>";  
                 }?>
             </tbody>  
@@ -39,12 +39,38 @@ class VArmas extends Vista {
                    echo "<td>".$arma["id"]."</td>";
                    echo "<td>".$arma["daño"]."</td>";
                    echo "<td>".$arma["tipo"]."</td>";
-                   echo "<td><a href='.php?id='".$arma["id"]."'>Editar</a> | <a href='.php?id='".$arma["id"]."'>Eliminar</a></td>";
+                   echo "<td><a href='ver_arma.php?id=$arma[id]'>Ver</a> | <a href='modificar_arma.php?id=$arma[id]'>Editar</a> | <a href='eliminar_arma.php?id=$arma[id]'>Eliminar</a></td>";
                 }?> 
                 </tr> 
             </tbody>  
          </table>
          <a href="ver_armas.php">volver</a>    
+    <?php }
+    function formcrear(){?>
+        <form action="guardar_armas.php" method="post">
+            <label>id</label>
+            <input type='number' name='id'> <br>  
+            <label>daño</label>
+            <input type="number" name="daño"><br>
+            <label>tipo</label>
+            <input type="text" name="tipo"><br>
+            <input type="submit" value=enviar>
+        </form>
+    <?php }
+    function formmodificar($armas){?>
+        <form action="actualizar_armas.php" method="post">
+            <?php foreach ($armas as $arma) {
+                echo "<input  type='number' name='id' value=$arma[id] style='display: none;'>";
+                echo "<label>daño</label>";
+                echo "<input type='number' name='daño' value=$arma[daño]>";
+                echo "<label>tipo</label>";
+                echo "<input type='text' name='tipo' value=$arma[tipo]>";   
+            }?>
+            <input type="submit" value=enviar>
+        </form>
+    <?php }
+    function cabecera(){?>
+        <a href="crear_armas.php">crear</a>
     <?php }
 }
 ?>

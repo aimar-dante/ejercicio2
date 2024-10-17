@@ -9,6 +9,7 @@ $armas = $con->select_armas();
 
 $vista = new VArmas;
 $vista->inithtml();
+$vista->cabecera();
 $vista->tabla_armas($armas);
 $vista->endhtml();
 ?>
