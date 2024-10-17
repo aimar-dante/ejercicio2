@@ -14,7 +14,15 @@ class MArmas extends conexion{
         return $armas;
     }
     public function select_arma($idarma){
-        
+        $query=$this->getcon()->query('SELECT * FROM `arma` where id='.$idarma.';');
+
+        $armas = [];
+
+        while($fila = $query->fetch_assoc()){
+            $armas[]=$fila;
+        }
+
+        return $armas;
     }
     public function insert_arma(){
         
