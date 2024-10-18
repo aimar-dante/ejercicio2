@@ -13,6 +13,10 @@ class Vista {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         </head>
         <body>
+        <nav>
+            <a href="ver_armas.php"><button>armas</button></a>
+            <a href="ver_escudos.php"><button>escudos</button></a>
+        </nav>
         <div class="container">
     <?php }
 
