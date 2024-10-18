@@ -1,8 +1,13 @@
 <?php
 require_once(__DIR__ . '/../vista/VEscudos.php');
 
+session_start();
+if (!isset($_SESSION['usuario_logueado'])) {
+    header("Location: loginForm.php");
+}
+
 $vista = new VEscudos;
-$vista->inithtml();
+Vista::inithtml();
 $vista->formcrear();
-$vista->endhtml();
+Vista::endhtml();
 ?>

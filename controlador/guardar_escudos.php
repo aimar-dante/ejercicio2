@@ -2,6 +2,11 @@
 require(__DIR__ . '/../modelo/MEscudos.php');
 
 
+session_start();
+if (!isset($_SESSION['usuario_logueado'])) {
+    header("Location: loginForm.php");
+}
+
 $daño=$_POST["defensa"];
 $tipo=$_POST["tipo"];
 

@@ -1,13 +1,13 @@
 <?php
-require_once(__DIR__ . '/../vista/VArmas.php');
+require_once __DIR__ . '/../vista/Vista.php';
 
 session_start();
 if (!isset($_SESSION['usuario_logueado'])) {
     header("Location: loginForm.php");
 }
 
-$vista = new VArmas;
 Vista::inithtml();
-$vista->formcrear();
+Vista::menu();
+Vista::desktop();
 Vista::endhtml();
 ?>

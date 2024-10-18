@@ -2,6 +2,11 @@
 require(__DIR__ . '/../modelo/MArmas.php');
 
 
+session_start();
+if (!isset($_SESSION['usuario_logueado'])) {
+    header("Location: loginForm.php");
+}
+
 $daño=$_POST["daño"];
 $tipo=$_POST["tipo"];
 
